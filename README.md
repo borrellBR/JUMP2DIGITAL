@@ -31,18 +31,8 @@ El proyecto utiliza tecnologías web estándar, incluyendo HTML, CSS y JavaScrip
 
 ## Instrucciones de Ejecución
 
-Para ejecutar este proyecto en tu propio entorno local, sigue estos pasos:
-
-1. Clona el repositorio a tu máquina local:
-
- git clone https://github.com/borrellBR/rick-morty-jump2site
-
-2. Abre el archivo `index.html` en tu navegador web. La aplicación se ejecutará en tu navegador.
-
-3. Explora la lista de personajes, realiza búsquedas, filtra por estado, especie y ubicación, y disfruta de la información detallada de los personajes de "Rick and Morty".
+Para ejecutar este proyecto en tu propio entorno local, haz click en el link que encontraras en la parte superior derecha del repositorio. (jump-2-digital-snowy.vercel.app)
 
 ## Créditos
 
 - Este proyecto utiliza la API pública de "Rick and Morty" (https://rickandmortyapi.com/).
-
-
