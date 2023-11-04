@@ -1,0 +1,452 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #0e393f;
+  color: #fff;
+  margin: 0;
+  padding: 0; */
+  overflow: hidden;
+}
+
+.transition-overlay {
+  background-image: url('/images/portt.gif');
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  animation-name: entrance-animation;
+  animation-duration: 0.4s; /* Animation duration */
+  animation-delay: 0.2s; /* Delay before the animation starts */
+  animation-timing-function: ease-in-out; /* You can adjust the timing function as needed */
+  animation-fill-mode: forwards;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('/images/portt.gif') center/cover no-repeat;
+  animation: swirl 1s linear forwards, distort 1s ease-in-out forwards, fadeOut 1s 0.5s forwards;
+}
+
+.content {
+  display: none;
+}
+
+@keyframes overlay {
+  0% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 0;
+  }
+}
+
+@keyframes swirl {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(720deg);
+  }
+}
+
+@keyframes distort {
+  0% {
+      transform: scale(1) skewX(0deg);
+  }
+  100% {
+      transform: scale(3) skewX(40deg);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 0;
+  }
+}
+
+@keyframes entrance-animation {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+header {
+  background-color: #0e393f;
+  padding: 20px;
+  text-align: center;
+}
+
+header img {
+  width: 700px;
+}
+
+#search-box {
+  margin-top: 20px;
+  position: relative;
+  width: 800px;
+  height: 50px;
+  border-radius: 25px;
+  border: 1px solid #cccccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  background: linear-gradient(to right, #2c3e50, #4b5173);
+}
+
+#search-box input[type="text"] {
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding: 0 50px;
+  border-radius: 25px;
+  background: transparent;
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  outline: none;
+}
+
+#search-box button {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+  padding: 10px;
+  font-size: 20px;
+}
+.more-info-button {
+  background-color: #1EDD88;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  text-shadow: 0.5px 0.5px 1px #000000;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+}
+
+.more-info-button:hover {
+  background-color: #15b06b;
+  text-shadow: 0.5px 0.5px 1px #000000;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+}
+
+main {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#characters-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.character-card {
+  background-color: #0a7c85;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #c5ca4c;
+}
+
+.character-card .image-container {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.character-card img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.character-card h3 {
+  margin: 10px 0;
+  color: white;
+}
+
+.character-card p {
+  margin: 5px 0;
+  color: white;
+}
+
+header {
+  text-align: center !important;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+  background-color: #45A298;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 30%;
+  border-radius: 5px;
+}
+
+.close-button {
+  color: #ffffff;
+  float: right;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: #bababa;
+}
+
+
+.search-button {
+  background-color: #0a7c85;
+}
+
+#load-more-button {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: #1EDD88;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-bottom: 23px;
+  text-shadow: 0.5px 0.5px 1px #000000;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+}
+
+#load-more-button:hover {
+  background-color: #15b06b;
+  text-shadow: 0.5px 0.5px 1px #000000;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media only screen and (max-width: 768px) {
+  header img {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  #search-box {
+    width: 90%;
+  }
+
+  #characters-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .character-card .image-container {
+    width: 120px;
+    height: 120px;
+  }
+
+  .character-card img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .modal-content {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  #characters-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+#lista-header {
+  position: relative;
+  display: inline-block; /* Makes the container fit the content */
+  padding: 0 10px; /* Provides space for the lines */
+}
+
+#lista-header::before,
+#lista-header::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  height: 2px;
+  width: 50px; /* Adjust based on desired line length */
+  background-color: #00FF00; /* Color of the line */
+  transform: translateY(-50%); /* Vertically centers the line */
+}
+
+#lista-header::before {
+  left: -55px; /* Adjust based on desired space between text and line */
+}
+
+#lista-header::after {
+  right: -55px; /* Adjust based on desired space between text and line */
+}
+
+.character-card {
+  position: relative;
+  /* Other styles for .character-card */
+}
+
+.status-sign {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 5px;
+  border-radius: 10px;
+  color: white;
+}
+
+.status-dead {
+  background-color: red;
+  border-radius: 20px;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-shadow: 0.5px 0.5px 1px #000000;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+}
+
+.status-alive {
+  background-color: rgb(40, 169, 17);
+  border-radius: 20px;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-shadow: 0.5px 0.5px 1px #000000;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+}
+
+.status-unknown {
+  background-color: gray;
+  border-radius: 20px;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-shadow: 0.5px 0.5px 1px #000000;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+}
+
+#lista-header {
+  position: relative;
+  display: inline-block; /* Makes the container fit the content */
+  padding: 0 10px; /* Provides space for the lines */
+}
+
+#lista-header::before,
+#lista-header::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  height: 2px;
+  width: 50px; /* Adjust based on desired line length */
+  background-color: #00FF00; /* Color of the line */
+  transform: translateY(-50%); /* Vertically centers the line */
+}
+
+#lista-header::before {
+  left: -55px; /* Adjust based on desired space between text and line */
+}
+
+#lista-header::after {
+  right: -55px; /* Adjust based on desired space between text and line */
+}
+
+#filter-container {
+  margin: 20px auto;
+  padding: 7px;
+
+  background-color: #35435C;
+  border-radius: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-top: -20px;
+}
+
+#filter-container label,
+#filter-container select {
+  margin: 5px;
+  font-size: 14px;
+  color: #A9A9A9;
+}
+
+#status-filter,
+#species-filter,
+#location-filter {
+  padding: 3px;
+  border: 1px solid #ccc;
+  border-radius: 20px; /* Apply circular borders */
+  background-color: #ffffff;
+}
+
+#filter-container select {
+  width: 80px;
+}
+
+#status-filter:hover,
+#species-filter:hover,
+#location-filter:hover {
+  background-color: #e3e3e3;
+}
+
+/* Add styles for the buttons in the filter box */
+#filter-container button {
+  padding: 10px 20px;
+  background-color: #1EDD88;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px;
+  font-size: 14px;
+  transition: background-color 0.3s;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Add hover effect */
+#filter-container button:hover {
+  background-color: #15b06b;
+  text-shadow: 0.5px 0.5px 1px #000000;
+}

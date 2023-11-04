@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rick & Morty</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="transition-overlay">
+    <div class="background-image"></div>
+  </div>
+    <header>
+        <img src="/images/rmlogo.gif">
+        <div id="search-box">
+            <input type="text" id="search-input" placeholder="Search names">
+            <div id="search-results"></div>
+            <button id="search-button">🔍</button>
+        </div>
+    </header>
+
+    <main>
+      <div id="filter-container">
+        <label for="status-filter">Filter by Status:</label>
+        <select id="status-filter">
+          <option value="all">All</option>
+        </select>
+
+        <label for="species-filter">Filter by Species:</label>
+        <select id="species-filter">
+          <option value="all">All</option>
+        </select>
+
+        <label for="location-filter">Filter by Location:</label>
+        <select id="location-filter">
+          <option value="all">All</option>
+        </select>
+      </div>
+      <h2 id="lista-header">Character list</h2>
+        <div id="characters-container">
+            <!-- Characters will be dynamically added here by JavaScript -->
+        </div>
+    </main>
+
+    <div id="character-details-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2 id="character-name"></h2>
+        <p>Species: <span id="character-species"></span></p>
+        <p>Location: <span id="character-location"></span></p>
+        <p>Status: <span id="character-status"></span></p>
+        <h3>Episodes:</h3>
+        <ul id="character-episodes"></ul>
+      </div>
+    </div>
+
+    <script src="main.js" type="module"></script>
+</body>
+</html>
