@@ -8,8 +8,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   const speciesFilter = document.getElementById('species-filter');
   const locationFilter = document.getElementById('location-filter');
 
-  let page = 1; // Initial page
-  let characterData = []; // Store character data
+  let page = 1;
+  let characterData = [];
   let isSearching = false;
 
 
@@ -36,15 +36,13 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   async function populateFilterOptions() {
-    // Fetch species data for dynamic options
+
     const speciesResponse = await fetch('https://rickandmortyapi.com/api/character');
     const speciesData = await speciesResponse.json();
 
-    // Fetch location data for dynamic options
     const locationResponse = await fetch('https://rickandmortyapi.com/api/location');
     const locationData = await locationResponse.json();
 
-    // Populate status filter options
     const statusList = [...new Set(characterData.map((char) => char.status))];
     statusList.forEach((status) => {
       const option = document.createElement('option');
@@ -53,7 +51,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       statusFilter.appendChild(option);
     });
 
-    // Populate species filter options
     const speciesList = [...new Set(speciesData.results.map((char) => char.species))];
     speciesList.forEach((species) => {
       const option = document.createElement('option');
@@ -62,7 +59,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       speciesFilter.appendChild(option);
     });
 
-    // Populate location filter options
     const locationList = locationData.results.map((location) => location.name);
     locationList.forEach((location) => {
       const option = document.createElement('option');
@@ -77,7 +73,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       const card = document.createElement("div");
       card.className = "character-card";
 
-      // Determine the status class and text based on the character's status
       let statusClass, statusText;
       if (character.status === "Dead") {
         statusClass = "status-dead";
@@ -120,7 +115,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     statusElement.textContent = character.status;
     episodesList.innerHTML = "";
 
-    // Fetch the character's episodes
     try {
       const episodeRequests = character.episode.map((episodeUrl) => fetch(episodeUrl));
       const episodeResponses = await Promise.all(episodeRequests);
@@ -155,14 +149,14 @@ document.addEventListener("DOMContentLoaded", async () => {
       return statusMatch && speciesMatch && locationMatch;
     });
 
-    charactersContainer.innerHTML = ''; // Clear the characters container
+    charactersContainer.innerHTML = '';
     renderCharacters(filteredCharacters);
   }
 
   async function loadMoreCharacters() {
-    page++; // Increment the page number
+    page++;
     const newData = await fetchCharacterData(page);
-    characterData = characterData.concat(newData); // Append new data to existing data
+    characterData = characterData.concat(newData);
     renderCharacters(newData);
   }
 
@@ -171,7 +165,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     isSearching = searchValue.length > 0;
     if (isSearching) {
       const searchResults = await searchCharacters(searchValue);
-      charactersContainer.innerHTML = ""; // Clear the characters container
+      charactersContainer.innerHTML = "";
       renderCharacters(searchResults);
     } else {
       charactersContainer.innerHTML = "";
@@ -179,33 +173,26 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   });
 
-
-  // Function to check if the user has scrolled to the bottom of the page
   function isScrolledToBottom() {
     const scrollHeight = document.documentElement.scrollHeight;
     const scrollTop = window.scrollY;
     const clientHeight = window.innerHeight;
-    return scrollHeight - scrollTop <= clientHeight + 200; // Adjust 200 as needed
+    return scrollHeight - scrollTop <= clientHeight + 200;
   }
 
-  // Function to load more characters automatically when scrolled to the bottom
   async function loadMoreCharactersIfNeeded() {
     if (!isSearching && isScrolledToBottom()) {
       await loadMoreCharacters();
     }
   }
 
-
-  // Add a scroll event listener to trigger loading more characters
   window.addEventListener("scroll", loadMoreCharactersIfNeeded);
 
-  // Initial fetch and render
   const initialCharacterData = await fetchCharacterData(page);
-  characterData = characterData.concat(initialCharacterData); // Store initial character data
+  characterData = characterData.concat(initialCharacterData);
   renderCharacters(initialCharacterData);
   populateFilterOptions();
 
-  // Event listeners
   closeButton.addEventListener("click", closeCharacterDetails);
   statusFilter.addEventListener('change', filterCharacters);
   speciesFilter.addEventListener('change', filterCharacters);

@@ -3,7 +3,7 @@ body {
   background-color: #0e393f;
   color: #fff;
   margin: 0;
-  padding: 0; */
+  padding: 0;
   overflow: hidden;
 }
 
@@ -16,9 +16,9 @@ body {
   left: 0;
   z-index: 9999;
   animation-name: entrance-animation;
-  animation-duration: 0.4s; /* Animation duration */
-  animation-delay: 0.2s; /* Delay before the animation starts */
-  animation-timing-function: ease-in-out; /* You can adjust the timing function as needed */
+  animation-duration: 0.4s;
+  animation-delay: 0.2s;
+  animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
 }
 
@@ -302,8 +302,8 @@ header {
 
 #lista-header {
   position: relative;
-  display: inline-block; /* Makes the container fit the content */
-  padding: 0 10px; /* Provides space for the lines */
+  display: inline-block;
+  padding: 0 10px;
 }
 
 #lista-header::before,
@@ -312,22 +312,21 @@ header {
   position: absolute;
   top: 50%;
   height: 2px;
-  width: 50px; /* Adjust based on desired line length */
-  background-color: #00FF00; /* Color of the line */
-  transform: translateY(-50%); /* Vertically centers the line */
+  width: 50px;
+  background-color: #00FF00;
+  transform: translateY(-50%);
 }
 
 #lista-header::before {
-  left: -55px; /* Adjust based on desired space between text and line */
+  left: -55px;
 }
 
 #lista-header::after {
-  right: -55px; /* Adjust based on desired space between text and line */
+  right: -55px;
 }
 
 .character-card {
   position: relative;
-  /* Other styles for .character-card */
 }
 
 .status-sign {
@@ -371,8 +370,8 @@ header {
 
 #lista-header {
   position: relative;
-  display: inline-block; /* Makes the container fit the content */
-  padding: 0 10px; /* Provides space for the lines */
+  display: inline-block;
+  padding: 0 10px;
 }
 
 #lista-header::before,
@@ -381,17 +380,17 @@ header {
   position: absolute;
   top: 50%;
   height: 2px;
-  width: 50px; /* Adjust based on desired line length */
-  background-color: #00FF00; /* Color of the line */
-  transform: translateY(-50%); /* Vertically centers the line */
+  width: 50px;
+  background-color: #00FF00;
+  transform: translateY(-50%);
 }
 
 #lista-header::before {
-  left: -55px; /* Adjust based on desired space between text and line */
+  left: -55px;
 }
 
 #lista-header::after {
-  right: -55px; /* Adjust based on desired space between text and line */
+  right: -55px;
 }
 
 #filter-container {
@@ -417,7 +416,7 @@ header {
 #location-filter {
   padding: 3px;
   border: 1px solid #ccc;
-  border-radius: 20px; /* Apply circular borders */
+  border-radius: 20px;
   background-color: #ffffff;
 }
 
@@ -431,7 +430,6 @@ header {
   background-color: #e3e3e3;
 }
 
-/* Add styles for the buttons in the filter box */
 #filter-container button {
   padding: 10px 20px;
   background-color: #1EDD88;
@@ -445,7 +443,6 @@ header {
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Add hover effect */
 #filter-container button:hover {
   background-color: #15b06b;
   text-shadow: 0.5px 0.5px 1px #000000;
